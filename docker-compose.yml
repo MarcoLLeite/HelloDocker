@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+    hellodockermaster:
+        container_name: hellodockermaster-container
+        environment:
+            - TZ=Europe/Zurich
+        image: ${DOCKER_REGISTRY-}hellodockermaster
+        build:
+            context: .
+            dockerfile: HelloDockerMaster/Dockerfile
+        volumes:
+            -   type: bind
+                source: /var/run/docker.sock
+                target: /var/run/docker.sock
+                volume:
+                    nocopy: true
+            -   type: bind
+                source: D:\ContainerData\logs
+                target: /logs
+                volume:
+                    nocopy: true
+    servicenotresponding:
+        container_name: servicenotresponding-container
+        environment:
+            - TZ=Europe/Zurich
+        image: ${DOCKER_REGISTRY-}servicenotresponding
+        build:
+            context: .
+            dockerfile: ServiceNotResponding/Dockerfile
+        volumes:
+            -   type: bind
+                source: D:\ContainerData\logs
+                target: /logs
+                volume:
+                    nocopy: true

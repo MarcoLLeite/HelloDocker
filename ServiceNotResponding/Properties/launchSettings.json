@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "ServiceNotResponding": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
